@@ -1,0 +1,36 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "rgLocation": {
+        "type": "string",
+        "defaultValue": "Southeast Asia"
+    }
+    },
+    "functions": [],
+    "variables": {},
+    "resources": [
+        {
+            "name": "AutomateTestVnet1",
+            "type": "Microsoft.Network/virtualNetworks",
+            "apiVersion": "2023-06-01",
+            "location": "[parameters('rgLocation')]",
+            "tags": {},
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "10.0.0.0/24"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "default",
+                        "properties": {
+                            "addressPrefix": "10.0.0.0/24"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
